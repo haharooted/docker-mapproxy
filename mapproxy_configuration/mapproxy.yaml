@@ -50,6 +50,7 @@ services:
         Insert license and copyright information for this service.
       fees: 'None'
   tms:
+    origin: 'nw'
     use_grid_names: true
   wmts:
     restful: true
