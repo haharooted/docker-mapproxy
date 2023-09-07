@@ -226,7 +226,7 @@ globals:
     # where to store lockfiles for tile creation
     tile_lock_dir: './cache_data/tile_locks'
   image:
-    resampling_method: biliniear
+    resampling_method: nearest
     jpeg_quality: 95
   http:
     ssl_no_cert_checks: true
