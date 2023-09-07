@@ -92,7 +92,7 @@ caches:
     format: image/jpeg
     cache:
       type: file
-      filename: ./cache_data/maptiler_cache
+      filename: ./cache_data
       max_level: 12
 
 
