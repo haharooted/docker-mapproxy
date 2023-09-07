@@ -59,6 +59,11 @@ services:
     use_grid_names: true
 
 layers:
+  - name: osm_layer
+    title: OSM Layer
+    sources: [mycache]
+
+
   - name: Hillshade
     title: Hillshade
     sources: [hillshade_cache]
@@ -76,6 +81,11 @@ layers:
 
 caches:
   
+  mycache:
+    grids: [webmercator]
+    sources: [my_tile_source]
+
+
   airports_cache:
     sources: [airports_wms]
     grids: [osm_grid]
@@ -110,6 +120,11 @@ caches:
       filename: ./cache_data/hillshade.mbtiles
 
 sources:
+  my_tile_source:
+    type: tile
+    grid: GLOBAL_WEBMERCATOR
+    url: http://a.tile.openstreetmap.org/%(z)s/%(x)s/%(y)s.png
+
   hillshade_wms:
     coverage:
 
@@ -168,6 +183,9 @@ sources:
     supported_srs: ['EPSG:3857', 'CRS:84']
 
 grids:
+  webmercator:
+    base: GLOBAL_WEBMERCATOR
+    
   osm_grid:
     base: GLOBAL_MERCATOR
     srs: 'EPSG:3857'
@@ -180,5 +198,7 @@ globals:
     lock_dir: './cache_data/locks'
     # where to store lockfiles for tile creation
     tile_lock_dir: './cache_data/tile_locks'
+  image:
+    resampling_method: biliniear
   http:
     ssl_no_cert_checks: true
