@@ -63,9 +63,9 @@ layers:
     title: Maptiler
     sources: [maptiler_cache]
 
-  - name: osm_layer
-    title: OSM Layer
-    sources: [mycache]
+  # - name: osm_layer
+  #   title: OSM Layer
+  #   sources: [mycache]
 
 
   - name: Hillshade
@@ -98,9 +98,9 @@ caches:
 
 
 
-  mycache:
-    grids: [webmercator]
-    sources: [my_tile_source]
+  # mycache:
+  #   grids: [webmercator]
+  #   sources: [my_tile_source]
 
 
   airports_cache:
@@ -142,10 +142,10 @@ sources:
     url: https://api.maptiler.com/maps/bright-v2/256/{z}/{x}/{y}.png?key=MQ7kWYdkQ6vbXDrI5EY5
     grid: webmercator_maptiler
 
-  my_tile_source:
-    type: tile
-    grid: GLOBAL_WEBMERCATOR
-    url: http://a.tile.openstreetmap.org/%(z)s/%(x)s/%(y)s.png
+  # my_tile_source:
+  #   type: tile
+  #   grid: GLOBAL_WEBMERCATOR
+  #   url: http://a.tile.openstreetmap.org/%(z)s/%(x)s/%(y)s.png
 
   hillshade_wms:
     coverage:
