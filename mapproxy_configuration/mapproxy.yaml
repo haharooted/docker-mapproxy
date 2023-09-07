@@ -90,7 +90,7 @@ caches:
     #disable_storage: true
     sources: [maptiler_source]
     grids: [webmercator_maptiler]
-    format: image/jpeg
+    #format: image/jpeg
     cache:
       type: file
       directory: ./cache_data
