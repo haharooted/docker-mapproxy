@@ -140,7 +140,7 @@ caches:
 sources:
   maptiler_source:
     type: tile
-    url: https://api.maptiler.com/maps/bright-v2/256/{z}/{x}/{y}.png?key=MQ7kWYdkQ6vbXDrI5EY5
+    url: https://api.maptiler.com/maps/bright-v2/256/%(z)s/%(x)s/%(y)s.png?key=MQ7kWYdkQ6vbXDrI5EY5
     grid: webmercator_maptiler
 
   # my_tile_source:
