@@ -59,6 +59,10 @@ services:
     use_grid_names: true
 
 layers:
+  - name: maptiler
+    title: Maptiler
+    sources: [maptiler_cache]
+
   - name: osm_layer
     title: OSM Layer
     sources: [mycache]
@@ -81,6 +85,11 @@ layers:
 
 caches:
   
+  maptiler_cache:
+    disable_storage: true
+    sources: [maptiler_source]
+    grids: [webmercator_maptiler]
+
   mycache:
     grids: [webmercator]
     sources: [my_tile_source]
@@ -120,6 +129,11 @@ caches:
       filename: ./cache_data/hillshade.mbtiles
 
 sources:
+  maptiler_source:
+    type: tile
+    url: https://api.maptiler.com/maps/bright-v2/256/{z}/{x}/{y}.png?key=MQ7kWYdkQ6vbXDrI5EY5
+    grid: webmercator_maptiler
+
   my_tile_source:
     type: tile
     grid: GLOBAL_WEBMERCATOR
@@ -183,9 +197,14 @@ sources:
     supported_srs: ['EPSG:3857', 'CRS:84']
 
 grids:
+  webmercator_maptiler:
+    srs: "EPSG:3857"
+    origin: nw
+    min_res: 156543.03392804097
+
   webmercator:
     base: GLOBAL_WEBMERCATOR
-    
+
   osm_grid:
     base: GLOBAL_MERCATOR
     srs: 'EPSG:3857'
