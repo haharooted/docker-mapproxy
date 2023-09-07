@@ -61,7 +61,7 @@ services:
 layers:
   - name: maptiler
     title: Maptiler
-    sources: [maptiler_cache]
+    sources: [maptiler_cache, maptiler_source]
 
   - name: osm_layer
     title: OSM Layer
@@ -86,9 +86,17 @@ layers:
 caches:
   
   maptiler_cache:
-    disable_storage: true
+    #disable_storage: true
     sources: [maptiler_source]
     grids: [webmercator_maptiler]
+    format: image/jpeg
+    cache:
+      type: file
+      filename: ./cache_data/maptiler_cache
+      max_level: 12
+
+
+
 
   mycache:
     grids: [webmercator]
@@ -219,5 +227,6 @@ globals:
     tile_lock_dir: './cache_data/tile_locks'
   image:
     resampling_method: biliniear
+    jpeg_quality: 95
   http:
     ssl_no_cert_checks: true
