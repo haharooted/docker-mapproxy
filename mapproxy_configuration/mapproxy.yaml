@@ -61,7 +61,7 @@ services:
 layers:
   - name: maptiler
     title: Maptiler
-    sources: [maptiler_cache, maptiler_source]
+    sources: [maptiler_cache]
 
   - name: osm_layer
     title: OSM Layer
